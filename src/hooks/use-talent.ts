@@ -16,7 +16,7 @@ interface Talent {
 export const useTalent = () => {
   const [talents, setTalents] = useState<Talent>();
   const [loading, setLoading] = useState<boolean>(false);
-  
+
   const create = async (
     name: string,
     city: string,
@@ -49,9 +49,33 @@ export const useTalent = () => {
 
   const uploadAllTalents = async () => {
     for (const talent of Data) {
-      const [name, city, category, skils, experience, budgetRange, portfolioUrl] = talent as [string, string, string[], string[], number, string, string];
+      const [
+        name,
+        city,
+        category,
+        skils,
+        experience,
+        budgetRange,
+        portfolioUrl,
+      ] = talent as [
+        string,
+        string,
+        string[],
+        string[],
+        number,
+        string,
+        string
+      ];
 
-      await create(name, city, category, skils, experience, budgetRange, portfolioUrl);
+      await create(
+        name,
+        city,
+        category,
+        skils,
+        experience,
+        budgetRange,
+        portfolioUrl
+      );
     }
     console.log("🎉 All talents uploaded successfully");
   };
@@ -59,8 +83,6 @@ export const useTalent = () => {
     create,
     talents,
     loading,
-    uploadAllTalents
+    uploadAllTalents,
   };
 };
-
-

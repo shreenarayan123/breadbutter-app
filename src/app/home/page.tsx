@@ -14,33 +14,9 @@ import {
 } from "@/components/ui/dialog";
 import ProjectForm from "@/components/projectForm";
 import { MoreVertical } from "lucide-react";
-import { useTalent } from "@/hooks/use-talent";
-import { Data } from "@/lib/Data";
-import { matchScore } from "@/lib/match";
 import { useMatch } from "@/hooks/use-match";
 
 type Props = {};
-
-interface Project {
-  title: string;
-  clientNeed: string; // e.g., "javascript react node"
-  location: string;
-  budget: number;
-  customerId: string;
-  stylePref: string[]; // e.g., ["modern", "bold"]
-  category: string; // e.g., "web dev UI/UX design"
-}
-
-interface Talent {
-  id: string;
-  name: string;
-  city: string;
-  category: string[]; // e.g., ["web dev", "UI/UX"]
-  skils: string[]; // e.g., ["javascript", "react"]
-  experience: number;
-  budgetRange: string; // "$250 - $500"
-  portfolioUrl: string;
-}
 
 const page = (props: Props) => {
   const { getProjects, loading, project } = useProject();

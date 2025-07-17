@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { email, z } from "zod";
+import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -37,7 +37,7 @@ export function ProfileForm() {
   const { createNewCustomer } = useCustomer();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-   const newCustomer =  await createNewCustomer(values.name, values.email);
+    const newCustomer = await createNewCustomer(values.name, values.email);
     if (newCustomer) {
       router.push("/home");
       localStorage.setItem("customerId", newCustomer.id);

@@ -15,12 +15,12 @@ interface Project {
 export const useProject = () => {
   const [project, setProject] = useState<Project[]>();
   const [loading, setLoading] = useState<boolean>(false);
-const [customerId, setCustomerId] = useState<string>("");
+  const [customerId, setCustomerId] = useState<string>("");
 
-useEffect(() => {
-  const storedId = localStorage.getItem("customerId") || "";
-  setCustomerId(storedId);
-}, []);
+  useEffect(() => {
+    const storedId = localStorage.getItem("customerId") || "";
+    setCustomerId(storedId);
+  }, []);
 
   const createNewProject = async (
     title: string,
@@ -61,6 +61,6 @@ useEffect(() => {
     createNewProject,
     getProjects,
     loading,
-    project
+    project,
   };
 };
